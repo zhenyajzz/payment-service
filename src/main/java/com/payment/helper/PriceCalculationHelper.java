@@ -13,7 +13,7 @@ import static java.util.Objects.nonNull;
 @Component
 public class PriceCalculationHelper {
 
-    //Процент от суммы покупки, если сумма привышает 500
+    //Процент от суммы покупки, если сумма привышает 500(Сделано для примера ситуации, когда сумма покупки высокая и за это клиент получает скидку как пример 5 процентов)
     private static final BigDecimal BULK_DISCOUNT_THRESHOLD = new BigDecimal("500");
     private static final BigDecimal BULK_DISCOUNT_RATE = new BigDecimal("5");
 
