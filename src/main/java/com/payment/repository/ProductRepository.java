@@ -1,6 +1,6 @@
 package com.payment.repository;
 
-import com.pay.paymentservicejo.model.Product;
+import com.payment.model.Product;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
