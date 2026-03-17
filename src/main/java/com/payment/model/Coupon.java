@@ -8,12 +8,12 @@ import lombok.Setter;
 
 import java.math.BigDecimal;
 
+@Entity
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
 @Setter
 @Table(name = "coupon")
-@Entity
 public class Coupon {
 
     @Id
@@ -28,3 +28,4 @@ public class Coupon {
 
     private boolean active;
 }
+

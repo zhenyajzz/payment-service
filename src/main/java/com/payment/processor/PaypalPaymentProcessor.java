@@ -10,9 +10,7 @@ public class PaypalPaymentProcessor implements PaymentProcessor {
     @Override
     public boolean processPayment(Integer price) {
         if (price > PRICE_LIMIT) {
-            throw new IllegalArgumentException(
-                String.format("PayPal payment failed: price cannot exceed %d", PRICE_LIMIT)
-            );
+            throw new IllegalArgumentException(String.format("PayPal payment failed: price cannot exceed %d", PRICE_LIMIT));
         }
         return true;
     }
