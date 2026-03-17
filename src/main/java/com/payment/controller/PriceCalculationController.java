@@ -21,7 +21,7 @@ public class PriceCalculationController {
     private final PriceCalculationService calculationService;
 
     @PostMapping
-    public ResponseEntity<?> calculatePrice(@RequestBody @Valid CalculationRequest request) {
+    public ResponseEntity<CalculationResponse> calculatePrice(@RequestBody @Valid CalculationRequest request) {
         log.info("Received price calculation request: {}", request);
         CalculationResponse response = calculationService.calculatePrice(request);
         log.info("Price calculated successfully: {}", response);
