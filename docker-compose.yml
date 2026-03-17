@@ -3,7 +3,7 @@ version: '3.8'
 services:
   postgres:
     image: postgres:15-alpine
-    container_name: payment-postgres-
+    container_name: payment-postgres-container
     environment:
       POSTGRES_DB: postgres
       POSTGRES_USER:
@@ -20,7 +20,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    container_name: payment-app
+    container_name: payment-service-conteiner
     depends_on:
       postgres:
         condition: service_healthy
