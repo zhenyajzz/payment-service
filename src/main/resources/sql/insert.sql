@@ -12,4 +12,4 @@ INSERT INTO product (id, name, price) VALUES
 INSERT INTO coupon (id, active, code, discount_percent) VALUES
                                                             (1, true, 'P10', 10),
                                                             (2, true, 'P100', 100),
-                                                            (3, true, 'P100', 100);
+                                                            (3, true, 'P30', 30);
