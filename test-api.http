@@ -1,0 +1,55 @@
+//Сам проверить данный файл не мог так как нету доступа к Http-Client от Jetbrains
+@baseUrl = http://localhost:8080
+
+### 1. Запрос на покупку (purchase)
+POST {{baseUrl}}/api/purchase
+Content-Type: application/json
+
+{
+  "product": 1,
+  "taxNumber": "IT12345678900",
+  "couponCode": "P15",
+  "paymentProcessor": "paypal"
+}
+
+### 2. Запрос на расчет цены (calculate-price)
+POST {{baseUrl}}/api/calculate-price
+Content-Type: application/json
+
+{
+  "product": 1,
+  "taxNumber": "DE123456789",
+  "couponCode": "P15"
+}
+
+### 3. Purchase без купона
+POST {{baseUrl}}/api/purchase
+Content-Type: application/json
+
+{
+  "product": 1,
+  "taxNumber": "FRAB123456789",
+  "couponCode": "",
+  "paymentProcessor": "stripe"
+}
+
+### 4. Calculate price без купона
+POST {{baseUrl}}/api/calculate-price
+Content-Type: application/json
+
+{
+  "product": 1,
+  "taxNumber": "GR123456789",
+  "couponCode": ""
+}
+
+### 5. Purchase с другим продуктом
+POST {{baseUrl}}/api/purchase
+Content-Type: application/json
+
+{
+  "product": 2,
+  "taxNumber": "IT12345678900",
+  "couponCode": "P10",
+  "paymentProcessor": "paypal"
+}
