@@ -10,17 +10,13 @@ services:
       POSTGRES_PASSWORD:
     ports:
       - "5432:5432"
-    volumes:
-      - postgres_data:/var/lib/postgresql/data
-    networks:
-      - payment-network-jo
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -U postgres -d postgres"]
       interval: 10s
       timeout: 5s
       retries: 5
 
-  payment-service-jo:
+  payment-service:
     build:
       context: .
       dockerfile: Dockerfile
