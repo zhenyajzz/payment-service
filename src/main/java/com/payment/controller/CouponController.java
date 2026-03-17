@@ -14,9 +14,9 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/coupon")
-@RequiredArgsConstructor
 @Slf4j
+@RequiredArgsConstructor
+@RequestMapping("/api/coupon")
 public class CouponController {
 
     private final CouponService couponService;
@@ -48,3 +48,5 @@ public class CouponController {
         return ResponseEntity.noContent().build();
     }
 }
+
+
