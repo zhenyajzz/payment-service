@@ -12,7 +12,7 @@ public class StripePaymentProcessor implements PaymentProcessor {
         float priceAsFloat = price.floatValue();
 
         if (priceAsFloat < MIN_PRICE) {
-            return false;
+            throw new IllegalArgumentException(String.format("Stripe payment failed: price cannot be lower %d", (int)MIN_PRICE));
         }
         return true;
     }

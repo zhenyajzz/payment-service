@@ -7,7 +7,8 @@ ALTER SEQUENCE coupon_id_seq RESTART WITH 1;
 INSERT INTO product (id, name, price) VALUES
                                           (1, 'Iphone', 100.00),
                                           (2, 'Наушники', 20.00),
-                                          (3, 'Чехол', 10.00);
+                                          (3, 'Чехол', 10.00),
+                                          (4, 'Автомобиль', 999999.00);
 
 INSERT INTO coupon (id, active, code, discount_percent) VALUES
                                                             (1, true, 'P10', 10),

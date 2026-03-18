@@ -2,8 +2,10 @@ package com.payment.request;
 
 import jakarta.validation.constraints.NotNull;
 import lombok.Getter;
+import lombok.ToString;
 
 @Getter
+@ToString
 public class CalculationRequest {
 
     @NotNull(message = "The product must be indicated.")

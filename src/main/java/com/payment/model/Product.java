@@ -10,12 +10,12 @@ import lombok.Setter;
 
 import java.math.BigDecimal;
 
+@Entity
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @Table(name = "product")
-@Entity
 public class Product {
 
     @NotNull(message = "Product ID is required")
