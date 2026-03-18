@@ -32,7 +32,7 @@ public class RequestValidator {
 
     private void validateProductId(long productId) {
         if (productId <= 0) {
-            throw new IllegalArgumentException("Invalid product ID");
+            throw new IllegalArgumentException("Invalid product id");
         }
     }
 

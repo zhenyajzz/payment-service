@@ -20,10 +20,10 @@ public class Coupon {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @Column(name = "code", unique = true)
+    @Column(name = "code", nullable = false, unique = true)
     private String code;
 
-    @Column(name = "discount_percent")
+    @Column(name = "discount_percent", nullable = false)
     private BigDecimal discountPercent;
 
     @Column(name = "active")

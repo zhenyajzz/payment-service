@@ -18,13 +18,14 @@ import java.math.BigDecimal;
 @Table(name = "product")
 public class Product {
 
-    @NotNull(message = "Product ID is required")
-    @Min(value = 1, message = "Product ID must be positive")
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id", nullable = false)
     private long id;
 
+    @Column(name = "name", nullable = false, length = 60)
     private String name;
 
+    @Column(name = "price", nullable = false, length = 20)
     private BigDecimal price;
 }
