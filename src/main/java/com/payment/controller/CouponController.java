@@ -25,20 +25,14 @@ public class CouponController {
     private final CouponService couponService;
 
     @GetMapping
-    @Operation(
-            summary = "Get all coupons",
-            description = "Retrieves a list of all available discount coupons"
-    )
+    @Operation(summary = "Get all coupons", description = "Retrieves a list of all available discount coupons")
     public ResponseEntity<List<Coupon>> findAll() {
         log.info("Fetching all coupons");
         return ResponseEntity.ok(couponService.findAllCoupons());
     }
 
     @PostMapping
-    @Operation(
-            summary = "Create a new coupon",
-            description = "Creates a new discount coupon with the specified details"
-    )
+    @Operation(summary = "Create a new coupon", description = "Creates a new discount coupon with the specified details")
     public ResponseEntity<CouponResponse> create(@RequestBody @Valid CouponRequest request) {
         log.info("Creating new coupon: {}", request.getCode());
         return ResponseEntity
@@ -47,20 +41,14 @@ public class CouponController {
     }
 
     @PutMapping("/{id}")
-    @Operation(
-            summary = "Update a coupon",
-            description = "Updates an existing coupon by id"
-    )
+    @Operation(summary = "Update a coupon", description = "Updates an existing coupon by id")
     public ResponseEntity<CouponResponse> update(@PathVariable long id, @RequestBody @Valid CouponRequest coupon) {
         log.info("Updating coupon with id: {}", id);
         return ResponseEntity.ok(couponService.updateCoupon(id, coupon));
     }
 
     @DeleteMapping("/{id}")
-    @Operation(
-            summary = "Delete a coupon",
-            description = "Deletes an existing coupon by id"
-    )
+    @Operation(summary = "Delete a coupon", description = "Deletes an existing coupon by id")
     public ResponseEntity<Void> delete(@PathVariable long id) {
         log.info("Deleting coupon with id: {}", id);
         couponService.deleteCoupon(id);

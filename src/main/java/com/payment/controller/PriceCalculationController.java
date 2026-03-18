@@ -24,8 +24,7 @@ public class PriceCalculationController {
     private final PriceCalculationService calculationService;
 
     @PostMapping
-    @Operation(
-            summary = "Calculate product price",
+    @Operation(summary = "Calculate product price",
             description = "Calculates final product price including tax based on taxNumber and applying discount coupon if provided"
     )
     public ResponseEntity<CalculationResponse> calculatePrice(@RequestBody @Valid CalculationRequest request) {
