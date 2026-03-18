@@ -6,6 +6,7 @@ import com.payment.service.PurchaseService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -25,11 +26,18 @@ public class PurchaseController {
 
     @PostMapping
     public ResponseEntity<Map<String, Integer>> purchase(@RequestBody @Valid PurchaseRequest purchaseRequest) {
-        purchaseService.purchaseProduct(purchaseRequest);
-        return ResponseEntity.ok(Collections.singletonMap("status", 200));
+        try {
+            purchaseService.purchaseProduct(purchaseRequest);
+            return ResponseEntity.ok(Collections.singletonMap("status", HttpStatus.OK.value()));
+        } catch (Exception e) {
+            log.error("Purchase failed: {}", e.getMessage());
+            return ResponseEntity
+                    .badRequest()
+                    .body(Collections.singletonMap("status", HttpStatus.BAD_REQUEST.value()));
+        }
     }
 
-    @PostMapping
+    @PostMapping(value = "/purchase/details")
     public ResponseEntity<PurchaseResponse> purchaseDetails(@RequestBody @Valid PurchaseRequest purchaseRequest) {
         log.info("Received purchase request: {}", purchaseRequest);
         PurchaseResponse response = purchaseService.purchaseProduct(purchaseRequest);
