@@ -26,6 +26,7 @@ public class Coupon {
     @Column(name = "discount_percent")
     private BigDecimal discountPercent;
 
+    @Column(name = "active")
     private boolean active;
 }
 

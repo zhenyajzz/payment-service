@@ -3,8 +3,10 @@ package com.payment.request;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;
 import lombok.Getter;
+import lombok.ToString;
 
 @Getter
+@ToString
 public class PurchaseRequest {
 
     @NotNull(message = "The product must be indicated.")
