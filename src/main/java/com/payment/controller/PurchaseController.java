@@ -3,6 +3,10 @@ package com.payment.controller;
 import com.payment.request.PurchaseRequest;
 import com.payment.response.PurchaseResponse;
 import com.payment.service.PurchaseService;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -20,11 +24,17 @@ import java.util.Map;
 @Slf4j
 @RequiredArgsConstructor
 @RequestMapping("/api/purchase")
+@Tag(name = "Purchase Controller", description = "Endpoints for purchasing products")
 public class PurchaseController {
 
     private final PurchaseService purchaseService;
 
     @PostMapping
+    @Operation(summary = "Purchase a product")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Purchase successful"),
+            @ApiResponse(responseCode = "400", description = "Invalid request"),
+    })
     public ResponseEntity<Map<String, Integer>> purchase(@RequestBody @Valid PurchaseRequest purchaseRequest) {
         try {
             purchaseService.purchaseProduct(purchaseRequest);
