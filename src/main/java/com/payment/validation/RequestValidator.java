@@ -74,9 +74,6 @@ public class RequestValidator {
     }
 
     private void validatePaymentProcessor(String paymentProcessor) {
-        if (isNull(paymentProcessor) || paymentProcessor.trim().isEmpty()) {
-            throw new IllegalArgumentException("Payment processor is required");
-        }
         try {
             ProcessorType.fromPaymentName(paymentProcessor);
         } catch (IllegalArgumentException e) {

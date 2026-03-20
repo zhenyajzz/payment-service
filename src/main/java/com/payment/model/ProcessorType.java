@@ -16,10 +16,6 @@ public enum ProcessorType {
     private final String paymentName;
 
     public static ProcessorType fromPaymentName(String paymentName) {
-        if (isNull(paymentName)) {
-            throw new IllegalArgumentException("Payment processor name cannot be null");
-        }
-
         return Arrays.stream(values())
                 .filter(type -> type.paymentName.equalsIgnoreCase(paymentName))
                 .findFirst()
